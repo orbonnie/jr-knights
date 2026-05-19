@@ -1,65 +1,202 @@
-import Image from "next/image";
+export const dynamic = "force-dynamic";
 
-export default function Home() {
+import Link from "next/link";
+import News from "@/components/News";
+import Calendar from "@/components/Calendar";
+import RegisterButtons from "@/components/links/RegisterButtons";
+import Sponsors, { Sponsor } from "@/components/Sponsors";
+import { getSheetData } from "@/lib/sheets";
+import type { NewsStory } from "@/types";
+import type { CalendarConfig } from "@/types";
+
+const quickLinks = [
+  {
+    label: "Schedules",
+    href: "/schedule",
+    description: "Game dates, times & locations",
+  },
+  {
+    label: "Rosters",
+    href: "/roster",
+    description: "Players & coaching staff",
+  },
+  {
+    label: "Info",
+    href: "/info",
+    description: "Registration, fees & contacts",
+  },
+];
+
+export default async function JrkLandingPage() {
+  const [jrkNews, news, allCalendars, sponsors] = await Promise.all([
+    getSheetData("JRK-News"),
+    getSheetData("HS-News"),
+    getSheetData("Calendars") as unknown as CalendarConfig[],
+    getSheetData("Sponsors") as unknown as Sponsor[],
+  ]);
+
+  const selectedCalendars = allCalendars
+    .filter((c) => c.group === "Jr Knights" || c.group === "General")
+    .map(({ name }) => name);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="min-h-screen">
+      {/* Hero — full screen poster */}
+      <div className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden bg-royal-600/95">
+        {/* Yard lines - horizontal stripes like a football field viewed from above */}
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
+                              0deg,
+                              rgba(255,255,255,0.6) 0px,
+                              rgba(255,255,255,0.6) 2px,
+                              transparent 2px,
+                              transparent 80px
+                            )`,
+          }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+        {/* Hash marks — left side */}
+        <div
+          className="absolute top-0 bottom-0 left-0 w-5 sm:w-10"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
+                              0deg,
+                              rgba(255,255,255,0.25) 0px,
+                              rgba(255,255,255,0.25) 1px,
+                              transparent 1px,
+                              transparent 16px
+                            )`,
+          }}
+        />
+        {/* Hash marks — right side */}
+        <div
+          className="absolute top-0 bottom-0 right-0 w-5 sm:w-10"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
+                              0deg,
+                              rgba(255,255,255,0.25) 0px,
+                              rgba(255,255,255,0.25) 1px,
+                              transparent 1px,
+                              transparent 16px
+                            )`,
+          }}
+        />
+
+        {/* Content */}
+        <div className="relative z-10 text-center max-w-4xl mx-auto mt-20">
+          <p className="font-display text-black-500 text-2xl tracking-[0.6em] uppercase mb-6">
+            Centennial Knights Football
           </p>
+
+          <h1 className="font-display text-white leading-none tracking-widest mb-2">
+            <span className="block text-7xl md:text-9xl">JR</span>
+            <span className="block text-7xl md:text-9xl">KNIGHTS</span>
+          </h1>
+
+          <div className="w-32 h-1 bg-silver-500 mx-auto my-8" />
+
+          <p className="font-display text-black-500 text-2xl md:text-4xl tracking-[0.3em] uppercase mb-12">
+            Building the Future
+          </p>
+
+          <p className="text-silver-400 text-lg font-bold max-w-xl mx-auto leading-relaxed mb-12">
+            The official youth feeder program for Centennial High School
+            Football. Developing Knights from kindergarten through 8th grade.
+          </p>
+
+          {/* Quick links */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xs sm:max-w-xl lg:max-w-2xl mx-auto">
+            {quickLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="bg-silver-400 hover:bg-white border border-white/10 hover:border-royal-600/50 rounded-2xl px-6 py-5 text-center transition-all duration-200 group"
+              >
+                <p className="font-display text-black-500 text-2xl tracking-widest group-hover:font-bold transition-colors">
+                  {link.label.toUpperCase()}
+                </p>
+                <p className="text-black-500/80 text-xs font-semibold mt-1 tracking-wide ">
+                  {link.description}
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        {/* Scroll indicator */}
+        <div className="relative z-10 mt-12 mb-10 flex flex-col items-center gap-2 text-silver-500">
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </svg>
         </div>
-      </main>
+      </div>
+
+      {/* News reel */}
+      <div className=" px-6">
+        <div className="max-w-4xl mx-auto">
+          <News
+            news={jrkNews as NewsStory[]}
+            divBg="white"
+            reelBg="silver-300"
+          />
+        </div>
+      </div>
+
+      {/* Calendar */}
+      <div className="sm:px-6 border-y bg-silver-400 border-y-silver-600/10">
+        <div className="sm:max-w-4xl mx-auto">
+          <Calendar
+            selectedCalendars={selectedCalendars}
+            ALL_CALENDARS={allCalendars}
+            divBg="silver-400"
+          />
+        </div>
+      </div>
+
+      <Sponsors sponsors={sponsors} />
+
+      {/* Register CTA */}
+      <div className="bg-silver-500 px-6 py-10">
+        <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-6">
+          <p className="font-display text-royal-600 text-lg tracking-[0.4em] uppercase">
+            Join Us
+          </p>
+          <h2 className="font-display text-black-500 text-4xl tracking-widest">
+            BECOME A KNIGHT
+          </h2>
+          <p className="text-black-500 text-sm max-w-md leading-relaxed">
+            Register today for the 2026 season. Questions? Contact Program
+            Director Alpha Owens at{" "}
+            <a
+              href="tel:8054326170"
+              className="text-royal-600 font-semibold underline hover:text-royal-500"
+            >
+              805-432-6170
+            </a>{" "}
+            or{" "}
+            <a
+              href="mailto:kibou94@icloud.com"
+              className="text-royal-600 font-semibold underline hover:text-royal-500"
+            >
+              kibou94@icloud.com
+            </a>
+            .
+          </p>
+          <RegisterButtons />
+        </div>
+      </div>
     </div>
   );
 }
