@@ -107,7 +107,7 @@ export default async function JrkLandingPage() {
           </p>
 
           {/* Quick links */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xs sm:max-w-xl lg:max-w-2xl mx-auto">
+          {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xs sm:max-w-xl lg:max-w-2xl mx-auto">
             {quickLinks.map((link) => (
               <Link
                 key={link.label}
@@ -122,7 +122,7 @@ export default async function JrkLandingPage() {
                 </p>
               </Link>
             ))}
-          </div>
+          </div> */}
         </div>
 
         {/* Scroll indicator */}

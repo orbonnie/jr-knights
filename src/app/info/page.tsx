@@ -53,21 +53,24 @@ export default function JrKnightsPage() {
             excellence.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            <span className="font-bold">Middle School (6th–8th):</span> Players
-            zoned for Centennial from{" "}
+            <span className="font-bold">Middle School (6th–8th):</span> Students
+            zoned for Centennial High School are eligible to participate. Most
+            of our players attend{" "}
             <span className="font-bold">Holcomb Bridge</span> and{" "}
-            <span className="font-bold">Haynes Bridge Middle Schools</span> are
-            eligible to participate. All practices and home games are held at
-            Centennial High School.
+            <span className="font-bold">Haynes Bridge Middle Schools</span>, or
+            surrounding private schools. All practices and home games are held
+            at Centennial High School.
           </p>
           <p className="text-gray-700 leading-relaxed">
             <span className="font-bold">Elementary (K–5th):</span> Open to
-            players from{" "}
+            students in the Centennial High School zone. Most of our players
+            attend{" "}
             <span className="font-bold">
-              River Eves, Esther Jackson, Hillside,
+              River Eves, Esther Jackson, Hillside
             </span>{" "}
-            and <span className="font-bold">Northwood Elementary Schools</span>.
-            All practices and home games are held at East Roswell Park.
+            and <span className="font-bold">Northwood Elementary Schools</span>,{" "}
+            or surrounding private schools. All practices and home games are
+            held at East Roswell Park.
           </p>
         </div>
 
@@ -148,18 +151,28 @@ export default function JrKnightsPage() {
 
         {/* Fees */}
         <div className="mb-12">
-          <h2 className="font-display text-black-500 text-3xl tracking-widest">
+          <h2 className="font-display text-black-500 text-3xl tracking-widest mb-2">
             2026 FEES
           </h2>
-          <p className="text-black-500/90 mb-6">
-            *See full fee details on our{" "}
+          <p className="text-gray-700 leading-relaxed">
+            We work hard to keep our program fees as low as possible without
+            compromising the quality of our program. These fees cover equipment
+            usage, league fees, insurance, field usage and referees.
+            Registration is not complete and equipment will not be issued until
+            your registration payment is made.{" "}
+          </p>
+          <br />
+          <p className="text-gray-700 mb-10 leading-relaxed">
+            Every student is welcome to be part of the Knights family regardless
+            of financial circumstances. We offer payment plans and hardship
+            waivers to make joining the team accessible to everyone. Email us at{" "}
             <a
-              href="/registration"
-              className="text-royal-600 font-bold hover:text-royal-500"
+              href="mailto:chsbapres@gmail.com"
+              className="text-royal-600 font-bold underline hover:text-royal-500"
             >
-              General Registration page
-            </a>
-            .
+              chsbapres@gmail.com
+            </a>{" "}
+            for more information.
           </p>
           <div className="rounded-md overflow-hidden border border-gray-200">
             <div className="grid grid-cols-3 bg-black-500 px-6 py-3 font-display text-sm tracking-widest uppercase text-white">

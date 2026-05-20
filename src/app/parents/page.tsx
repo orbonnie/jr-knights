@@ -24,7 +24,7 @@ export default async function ParentsPage() {
       <div className="px-6 mb-16">
         <div className="max-w-4xl mx-auto">
           <p className="font-display text-royal-600 text-xl tracking-[0.4em]">
-            CENTENNIAL KNIGHTS
+            CENTENNIAL JR KNIGHTS
           </p>
           <h1 className="font-display text-black-500 text-7xl tracking-widest leading-none">
             PARENT
@@ -118,17 +118,13 @@ export default async function ParentsPage() {
             <p className="text-white/90 leading-relaxed">
               Our program is committed to developing young men who pursue
               excellence in the classroom with the same effort and discipline
-              they bring to the field. Academic success is not just a
-              requirement for participation, it is a foundational part of who we
-              are.
+              they bring to the field. Academic success is a foundational part
+              of who we are.
             </p>
             <p className="text-white/90 leading-relaxed">
               We expect every player to prioritize the "student" role by
               managing time wisely, completing assignments, and communicating
-              with teachers. Student-athletes must meet GHSA academic
-              eligibility requirements and remain on track for graduation.
-              Coaches actively monitor academic progress and work alongside
-              parents and teachers to support every student.
+              with teachers.
             </p>
           </div>
         </div>
@@ -156,17 +152,17 @@ export default async function ParentsPage() {
                   "Our primary source of program-wide communication. Sent weekly to all families with essential information, reminders, and updates. Parents are expected to read it carefully each week.",
               },
               {
-                title: "Text & TeamSnap App",
+                title: "TeamSnap App",
                 description:
-                  "Text messages are reserved for urgent communication such as schedule changes or weather updates. TeamSnap serves as a platform for team-specific coordination.",
+                  "TeamSnap serves as a platform for team-specific coordination, including game schedules, RSVPs and group chats.",
               },
               {
                 title: "Website & Social",
                 description: (
                   <>
-                    CentennialKnightsFootball.com is the central hub for all
-                    program information including schedules, registration, and
-                    sponsorship. Follow us on{" "}
+                    JrkFootball.com is the central hub for all program
+                    information including schedules, registration, and
+                    sponsorships. Follow us on{" "}
                     <RegSocialLink
                       label="Facebook"
                       href="https://www.facebook.com/profile.php?id=100057624190756#"

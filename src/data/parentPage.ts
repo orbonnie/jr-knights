@@ -65,23 +65,23 @@ export const eliteParentActions = [
 export const faqs = [
   {
     q: "Best time for a vacation?",
-    a: "Ideally, the weeks of May 23-31 or July 1-5, is the best time to take a vacation. These are GHSA Dead Weeks and allow your family to enjoy time away without missing practice, camps, or other important activities.",
+    a: "Ideally, the month of June is best for travel. We do not have any team commitments duringthis time, so it allows your family to enjoy time away without missing practice, camps, or other important activities.",
   },
   {
     q: "How should I communicate a concern to coaches?",
-    a: "If you have a question or concern, please email your Head Coach with a request to set up an appointment. Under no circumstances should you expect to speak with a coach immediately before, during, or after a game.",
+    a: "If you have a question or concern, please email your Head Coach with a request to set up an appointment. Please do not expect to speak with a coach immediately before, during, or after a game.",
   },
   {
     q: "What about weather-related issues?",
-    a: "On days where inclement weather may be a factor, it's critical that you monitor official communication channels for updates. As a program, we abide by all GHSA and league standards regarding weather regulations.",
+    a: "On days where inclement weather may be a factor, it's critical that you monitor official communication channels for updates. As a program, we abide by all GMSAA and league standards regarding weather regulations.",
   },
   {
     q: "What are acclimation days?",
-    a: "Before full-contact practices begin, GHSA mandates a 5-day acclimation period where athletes practice in helmets and shorts only to safely adjust to weather conditions. Attendance is required for participation in subsequent practices.",
+    a: "Before full-contact practices begin, GMSAA mandates a 5-day acclimation period where athletes practice in helmets and shorts only to safely adjust to weather conditions. Attendance is required for participation in subsequent practices.",
   },
   {
     q: "What should my player wear on gameday?",
-    a: "Players are strongly encouraged to wear BLACK cleats for games. All other necessary game gear will be provided. All undershirts and accessories should be program colors unless otherwise specified.",
+    a: "Players should bring their own cleats, padded pants and mouthguards for games. All other necessary game gear will be provided.",
   },
   {
     q: "When should I schedule appointments for my player?",
@@ -91,33 +91,51 @@ export const faqs = [
 
 export const contacts = [
   {
-    role: "Head Coach",
-    name: "Coach Name",
-    email: "headcoach@centennialknights.com",
-    for: "Varsity questions, general program inquiries",
+    role: "Program Director and 7th Grade Head Coach",
+    name: "Alpha Owens",
+    email: "kibou94@icloud.com",
+    for: "General program inquiries, 7th grade player inquires",
   },
   {
-    role: "General Manager",
-    name: "Name",
-    email: "gm@centennialknights.com",
-    for: "Sponsorships, general program inquiries",
+    role: "6th Grade Head Coach",
+    name: "Will Bass",
+    email: "",
+    for: "6th grade player inquires",
   },
   {
-    role: "President, TD Club",
-    name: "Name",
-    email: "president@centennialknights.com",
-    for: "General program inquiries, serving with the Touchdown Club",
+    role: "8th Grade Head Coach",
+    name: "Daniel Howard",
+    email: "daniel1eagle@yahoo.com",
+    for: "8th grade player inquires",
   },
   {
-    role: "Treasurer, TD Club",
-    name: "Name",
-    email: "treasurer@centennialknights.com",
-    for: "Financial inquiries",
+    role: "6th Grade Team Mom",
+    name: "Jessica Lapresi",
+    email: "",
+    for: "6th grade registration and info inquires",
   },
   {
-    role: "Volunteer Coordinator",
-    name: "Name",
-    email: "volunteer@centennialknights.com",
-    for: "Point App questions, volunteer questions",
+    role: "7th Grade Team Mom",
+    name: "Patrice Payment",
+    email: "",
+    for: "7th grade registration and info inquires",
+  },
+  {
+    role: "8th Grade Team Mom",
+    name: "Shelby Pape",
+    email: "",
+    for: "8th grade registration and info inquires",
+  },
+  {
+    role: "Booster Club President",
+    name: "Allison Simmons",
+    email: "chsbapres@gmail.com",
+    for: "Financial inquires",
+  },
+  {
+    role: "Fundraiser Chair",
+    name: "Krista Martin",
+    email: "Centennialfootballpartners@gmail.com",
+    for: "Fundraiser inquires",
   },
 ];
