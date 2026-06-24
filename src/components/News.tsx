@@ -15,11 +15,17 @@ export default function News({
   divBg?: string;
   reelBg?: string;
 }) {
-  const slides = [...news, news[0]];
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [transitionEnabled, setTransitionEnabled] = useState(true);
   const throttleRef = useRef(false);
+  const slides = [...news].filter((n) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const [year, month, day] = n.isoDate.split("-").map(Number);
+    const eventDate = new Date(year, month - 1, day);
+    return eventDate >= today;
+  });
 
   const throttledNav = (fn: () => void) => {
     if (throttleRef.current) return;
@@ -38,7 +44,7 @@ export default function News({
     throttledNav(() => {
       if (index === 0) {
         setTransitionEnabled(false);
-        setIndex(news.length - 1);
+        setIndex(slides.length - 1);
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             setTransitionEnabled(true);
@@ -63,7 +69,7 @@ export default function News({
 
   // seamless reset after cloned first slide
   useEffect(() => {
-    if (index === news.length) {
+    if (index === slides.length) {
       const timeout = setTimeout(() => {
         setTransitionEnabled(false);
         setIndex(0);
@@ -77,7 +83,7 @@ export default function News({
 
       return () => clearTimeout(timeout);
     }
-  }, [index, news.length]);
+  }, [index, slides.length]);
 
   return (
     <section className={`bg-${divBg} py-16 px-6`}>
@@ -135,6 +141,7 @@ export default function News({
               <Link
                 key={`${item.title}-${i}`}
                 href={item.href}
+                target={item.href === "#" ? "" : "_blank"}
                 className="min-w-full w-full flex-shrink-0"
               >
                 {/* IMAGE */}
@@ -198,7 +205,7 @@ export default function News({
 
         {/* DOTS */}
         <div className="flex justify-center gap-3 mt-6">
-          {news.map((_, i) => (
+          {slides.map((_, i) => (
             <button
               key={i}
               onClick={() => setIndex(i)}
