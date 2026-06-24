@@ -75,6 +75,7 @@ export type NewsStory = {
   image: string;
   href: string;
   date: string;
+  isoDate: string;
 };
 
 export type CalendarConfig = {
