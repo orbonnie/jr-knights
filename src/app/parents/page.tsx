@@ -148,8 +148,21 @@ export default async function ParentsPage() {
             {[
               {
                 title: "Weekly Email",
-                description:
-                  "Our primary source of program-wide communication. Sent weekly to all families with essential information, reminders, and updates. Parents are expected to read it carefully each week.",
+                description: (
+                  <>
+                    Our primary source of program-wide communication. Sent
+                    weekly to all families with essential information,
+                    reminders, and updates. Parents are expected to read it
+                    carefully each week. If you are not getting the weekly
+                    email, contact Anna McLaurin at{" "}
+                    <a
+                      href={"mailto: aadaniel84@gmail.com"}
+                      className="text-royal-500 text-sm font-semibold tracking-wider transition-colors shrink-0 hover:text-royal-400"
+                    >
+                      aadaniel84@gmail.com
+                    </a>
+                  </>
+                ),
               },
               {
                 title: "TeamSnap App",

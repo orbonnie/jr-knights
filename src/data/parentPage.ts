@@ -65,7 +65,7 @@ export const eliteParentActions = [
 export const faqs = [
   {
     q: "Best time for a vacation?",
-    a: "Ideally, the month of June is best for travel. We do not have any team commitments duringthis time, so it allows your family to enjoy time away without missing practice, camps, or other important activities.",
+    a: "Ideally, the month of June is best for travel. We do not have any team commitments during this time, so it allows your family to enjoy time away without missing practice, camps, or other important activities.",
   },
   {
     q: "How should I communicate a concern to coaches?",
