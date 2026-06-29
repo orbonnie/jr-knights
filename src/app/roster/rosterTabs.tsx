@@ -8,10 +8,14 @@ import type { JrkPlayer } from "@/types";
 
 export default function RosterTabs({
   coaches,
-  roster,
+  roster6,
+  roster7,
+  roster8,
 }: {
   coaches: Record<string, string>[];
-  roster: Record<string, string>[];
+  roster6: Record<string, string>[];
+  roster7: Record<string, string>[];
+  roster8: Record<string, string>[];
 }) {
   const [activeGrade, setActiveGrade] = useState("6th");
 
@@ -19,9 +23,9 @@ export default function RosterTabs({
   const seventhCoaches = coaches.filter((c) => c.grade === "7th");
   const eighthCoaches = coaches.filter((c) => c.grade === "8th");
 
-  const sixthRoster = roster.filter((p) => p.grade === "6th");
-  const seventhRoster = roster.filter((p) => p.grade === "7th");
-  const eighthRoster = roster.filter((p) => p.grade === "8th");
+  const sixthRoster = roster6;
+  const seventhRoster = roster7;
+  const eighthRoster = roster8;
 
   const grades = [
     {

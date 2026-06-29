@@ -36,11 +36,14 @@ export default async function ParentsPage() {
 
       {/* Welcome */}
       <section className="bg-royal-600 py-20 px-6 mb-2">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="font-display text-silver-400 text-2xl tracking-[0.4em] mb-6">
-            WELCOME
+        <div className="max-w-4xl mx-auto ">
+          <p className="font-display text-silver-400 text-xl tracking-[0.4em] mb-2">
+            OUR
           </p>
-          <p className="font-display text-white text-[clamp(1.5rem,4vw,2.5rem)] leading-tight tracking-wide max-w-3xl mx-auto">
+          <h2 className="font-display text-black-500 text-5xl tracking-widest mb-10">
+            MISSION
+          </h2>
+          <p className="font-display text-white text-[clamp(1.5rem,4vw,2.5rem)] leading-tight tracking-wide max-w-3xl">
             WELCOME TO CENTENNIAL KNIGHTS FOOTBALL. OUR MISSION IS TO DEVELOP
             YOUNG MEN WHO PURSUE EXCELLENCE IN EVERYTHING THEY DO. THANK YOU FOR
             TRUSTING US TO CHALLENGE YOUR SON AND FOR PARTNERING WITH US TO
@@ -50,7 +53,7 @@ export default async function ParentsPage() {
       </section>
 
       {/* UKNIGHTED Values */}
-      <section className="bg-silver-400 py-20 px-6 mb-2">
+      {/* <section className="bg-silver-400 py-20 px-6 mb-2">
         <div className="max-w-4xl mx-auto">
           <p className="font-display text-royal-600 text-xl tracking-[0.4em] mb-2">
             OUR
@@ -79,7 +82,7 @@ export default async function ParentsPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* 5 Actions of UKNIGHTED Parents */}
       <section className="bg-white py-20 px-6 mb-2">
@@ -111,7 +114,7 @@ export default async function ParentsPage() {
           <p className="font-display text-silver-400 text-xl tracking-[0.4em] mb-2">
             SUCCEEDING AS A
           </p>
-          <h2 className="font-display text-white text-5xl tracking-widest mb-10">
+          <h2 className="font-display text-black-500 text-5xl tracking-widest mb-10">
             STUDENT-ATHLETE
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">

@@ -18,8 +18,13 @@ const navLinks = [
 
 const registerLinks = [
   {
-    label: "Team Registration",
+    label: "Info",
     href: "/info",
+    newTab: false,
+  },
+  {
+    label: "Registration Links",
+    href: "info/#top-cta",
     newTab: false,
   },
   {
