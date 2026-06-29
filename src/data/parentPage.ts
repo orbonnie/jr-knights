@@ -99,7 +99,7 @@ export const contacts = [
   {
     role: "6th Grade Head Coach",
     name: "Will Bass",
-    email: "",
+    email: "wbass4@gmail.com",
     for: "6th grade player inquires",
   },
   {
@@ -111,19 +111,19 @@ export const contacts = [
   {
     role: "6th Grade Team Mom",
     name: "Jessica Lapresi",
-    email: "",
+    email: "jessicalapresi@yahoo.com",
     for: "6th grade registration and info inquires",
   },
   {
     role: "7th Grade Team Mom",
     name: "Patrice Payment",
-    email: "",
+    email: "patricepayment@gmail.com",
     for: "7th grade registration and info inquires",
   },
   {
     role: "8th Grade Team Mom",
     name: "Shelby Pape",
-    email: "",
+    email: "shelby.roberts@gmail.com",
     for: "8th grade registration and info inquires",
   },
   {

@@ -71,7 +71,7 @@ export default async function JrkLandingPage() {
       <Sponsors sponsors={sponsors} />
 
       {/* Register CTA */}
-      <div className="bg-silver-500 px-6 py-10">
+      <section className="bg-silver-500 px-6 py-10" id="registration-links">
         <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-6">
           <p className="font-display text-royal-600 text-lg tracking-[0.4em] uppercase">
             Join Us
@@ -99,7 +99,7 @@ export default async function JrkLandingPage() {
           </p>
           <RegisterButtons />
         </div>
-      </div>
+      </section>
     </div>
   );
 }

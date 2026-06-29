@@ -33,7 +33,7 @@ const fees = [
 
 export default function JrKnightsPage() {
   return (
-    <div className="min-h-screen bg-white pt-24 pb-20 px-6">
+    <div className="min-h-screen bg-white pt-24 pb-10 px-6">
       <div className="max-w-4xl mx-auto">
         {/* Hero */}
         <div className="mb-10">
@@ -43,9 +43,9 @@ export default function JrKnightsPage() {
         </div>
 
         {/* Intro */}
-        <div className="mb-12 space-y-4">
+        <div className="space-y-4">
           <p className="text-gray-700 leading-relaxed">
-            The Jr. Knights are the official youth feeder program for Centennial
+            The Jr. Knights is the official youth feeder program for Centennial
             High School Football, serving players from kindergarten through 8th
             grade in the Centennial school district. Our program is dedicated to
             building the next generation of Knights by developing players on and
@@ -75,7 +75,7 @@ export default function JrKnightsPage() {
         </div>
 
         {/* Registration buttons */}
-        <div className="mb-14">
+        <section className="mb-14 pt-20" id="top-cta">
           <p className="text-black-500 text-md leading-relaxed mb-6 text-center">
             <span className="font-bold text-lg text-royal-600 bg-royal-600/10 p-2 rounded-xl text-center">
               Register today
@@ -85,7 +85,7 @@ export default function JrKnightsPage() {
           <div className="flex justify-center">
             <RegisterButtons />
           </div>
-        </div>
+        </section>
 
         {/* Program Info */}
         <div className="mb-12">
@@ -231,7 +231,10 @@ export default function JrKnightsPage() {
         </div>
 
         {/* CTA */}
-        <div className="bg-silver-400 rounded-lg px-8 py-10 flex flex-col items-center gap-6 text-center">
+        <section
+          className="bg-silver-400 rounded-lg px-8 py-10 flex flex-col items-center gap-6 text-center"
+          id="info-registration-links"
+        >
           <h3 className="font-display text-black-500 text-3xl tracking-widest">
             READY TO JOIN THE KNIGHTS?
           </h3>
@@ -252,7 +255,7 @@ export default function JrKnightsPage() {
               kibou94@icloud.com
             </a>
           </p>
-        </div>
+        </section>
       </div>
     </div>
   );

@@ -157,10 +157,10 @@ export default function BannersPage() {
         {/* At a glance */}
         <div className="mb-20">
           <p className="font-display text-royal-600 text-sm tracking-[0.4em] uppercase mb-2">
-            Summary
+            Banner
           </p>
           <h2 className="font-display text-black-500 text-4xl tracking-widest mb-8">
-            AT A GLANCE
+            CREDITS
           </h2>
           <div className="rounded-2xl overflow-hidden border border-gray-200">
             <div className="grid grid-cols-3 bg-black-500 px-6 py-3 font-display text-xs tracking-widest uppercase text-white">
