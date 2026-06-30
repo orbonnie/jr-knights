@@ -43,11 +43,11 @@ export default async function ParentsPage() {
           <h2 className="font-display text-black-500 text-5xl tracking-widest mb-10">
             MISSION
           </h2>
-          <p className="font-display text-white text-[clamp(1.5rem,4vw,2.5rem)] leading-tight tracking-wide max-w-3xl">
-            WELCOME TO CENTENNIAL KNIGHTS FOOTBALL. OUR MISSION IS TO DEVELOP
-            YOUNG MEN WHO PURSUE EXCELLENCE IN EVERYTHING THEY DO. THANK YOU FOR
-            TRUSTING US TO CHALLENGE YOUR SON AND FOR PARTNERING WITH US TO
-            BUILD SOMETHING SPECIAL.
+          <p className="font-heading text-white text-[clamp(1.5rem,4vw,2.25rem)] leading-tight tracking-wide max-w-4xl">
+            Welcome to Centennial Knights Football. Our mission is to develop
+            young men who pursue excellence in everything they do. Thank you for
+            trusting us to challenge your son and for partnering with us to
+            build something special.
           </p>
         </div>
       </section>
@@ -99,7 +99,7 @@ export default async function ParentsPage() {
                 <span className="font-display text-royal-600 text-4xl w-10 shrink-0">
                   {i + 1}
                 </span>
-                <p className="text-royal-900/70 text-base leading-relaxed pt-2">
+                <p className="text-black-500/90 text-base font-medium leading-relaxed pt-2">
                   {action}
                 </p>
               </div>
@@ -118,7 +118,7 @@ export default async function ParentsPage() {
             STUDENT-ATHLETE
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <p className="text-white/90 leading-relaxed">
+            <p className="text-white/90 leading-relaxed text-lg">
               Our program is committed to developing young men who pursue
               excellence in the classroom with the same effort and discipline
               they bring to the field. Academic success is a foundational part
@@ -231,7 +231,7 @@ export default async function ParentsPage() {
                 <p className="font-display text-black-500 text-xl tracking-wider mb-2">
                   {faq.q.toUpperCase()}
                 </p>
-                <p className="text-royal-900/60 text-sm leading-relaxed">
+                <p className="text-black-500/70 text-sm leading-relaxed">
                   {faq.a}
                 </p>
               </div>
