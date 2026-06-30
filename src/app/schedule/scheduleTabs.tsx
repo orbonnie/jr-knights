@@ -97,17 +97,21 @@ function GameRow({ game }: { game: JrkGame }) {
 }
 
 export default function JrkScheduleClient({
-  jrkSchedule,
+  schedule6,
+  schedule7,
+  schedule8,
   calendars,
 }: {
-  jrkSchedule: Record<string, string>[];
+  schedule6: Record<string, string>[];
+  schedule7: Record<string, string>[];
+  schedule8: Record<string, string>[];
   calendars: Record<string, string>[];
 }) {
   const [activeGrade, setActiveGrade] = useState("6th");
 
-  const sixthGames = jrkSchedule.filter((g) => g.grade === "6th");
-  const seventhGames = jrkSchedule.filter((g) => g.grade === "7th");
-  const eighthGames = jrkSchedule.filter((g) => g.grade === "8th");
+  const sixthGames = schedule6;
+  const seventhGames = schedule7;
+  const eighthGames = schedule8;
 
   const sixthCal = calendars.find((c) => c.name === "6th Grade Games");
   const seventhCal = calendars.find((c) => c.name === "7th Grade Games");
