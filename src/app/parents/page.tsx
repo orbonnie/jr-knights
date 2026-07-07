@@ -181,12 +181,12 @@ export default async function ParentsPage() {
                     sponsorships. Follow us on{" "}
                     <RegSocialLink
                       label="Facebook"
-                      href="https://www.facebook.com/profile.php?id=100057624190756#"
+                      href="https://www.facebook.com/CHSKnightsFootball"
                     />{" "}
                     and{" "}
                     <RegSocialLink
                       label="X"
-                      href="https://x.com/CHSKnightsAth"
+                      href="https://x.com/CHSKnightsFB"
                     />{" "}
                     for highlights and announcements.
                   </>
