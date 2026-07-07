@@ -4,7 +4,7 @@ import { useHoverReset } from "@/hooks/useHoverReset";
 
 const MIDDLE_REGISTRATION_URL = "https://registration.teamsnap.com/form/48104";
 const ELEMENTARY_REGISTRATION_URL =
-  "https://app.amilia.com/store/en/city-of-roswell/shop/programs/128058?subCategoryIds=6626396";
+  "https://cobbfootball.leagueapps.com/clubteams/5052028-2026-centennial-youth-football";
 
 export default function RegisterButtons({
   label = "Middle School Registration",
