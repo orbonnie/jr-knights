@@ -2,6 +2,7 @@ export const dynamic = "force-dynamic";
 
 import type { Metadata } from "next";
 import { values, eliteParentActions, faqs, contacts } from "@/data/parentPage";
+import { socialLinks } from "@/data/socialLinks";
 import { RegSocialLink } from "@/components/links/SocialLinks";
 import CalendarSubscribe from "@/components/CalendarSubscribe";
 import { getSheetData } from "@/lib/sheets";
@@ -179,15 +180,14 @@ export default async function ParentsPage() {
                     JrkFootball.com is the central hub for all program
                     information including schedules, registration, and
                     sponsorships. Follow us on{" "}
-                    <RegSocialLink
-                      label="Facebook"
-                      href="https://www.facebook.com/CHSKnightsFootball"
-                    />{" "}
-                    and{" "}
-                    <RegSocialLink
-                      label="X"
-                      href="https://x.com/CHSKnightsFB"
-                    />{" "}
+                    {socialLinks.map((sl) => (
+                      <RegSocialLink
+                        label={sl.label}
+                        href={sl.href}
+                        key={sl.label}
+                        separator={sl.separator}
+                      />
+                    ))}
                     for highlights and announcements.
                   </>
                 ),
