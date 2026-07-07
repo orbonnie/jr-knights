@@ -22,7 +22,7 @@ export function RegSocialLink({
         onMouseEnter={hover.onMouseEnter}
         onMouseLeave={hover.onMouseLeave}
         className={`transition-colors font-bold ${
-          hover.hovered ? "text-white" : "text-royal-400"
+          hover.hovered ? "text-royal-400" : "text-royal-500"
         }`}
       >
         {label}
