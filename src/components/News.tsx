@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import { Fragment, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -26,6 +27,17 @@ export default function News({
     const eventDate = new Date(year, month - 1, day);
     return eventDate >= today;
   });
+
+  const parseBold = (text: string) => {
+    const parts = text.split(/(\*\*[^*]+\*\*)/g);
+
+    return parts.map((part, i) => {
+      if (part.startsWith("**") && part.endsWith("**")) {
+        return <strong key={i}>{part.slice(2, -2)}</strong>;
+      }
+      return <Fragment key={i}>{part}</Fragment>;
+    });
+  };
 
   const throttledNav = (fn: () => void) => {
     if (throttleRef.current) return;
@@ -169,7 +181,7 @@ export default function News({
                   </h3>
 
                   <p className="mt-6 text-black-500/70 text-base leading-relaxed max-w-3xl mx-auto">
-                    {item.description}
+                    {parseBold(item.description)}
                   </p>
                 </div>
               </Link>
