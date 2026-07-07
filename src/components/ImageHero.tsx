@@ -21,7 +21,7 @@ export default function HeroImage() {
       {/* Content */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pt-24 pb-16">
         <p
-          className="font-display text-black-500 font-semibold text-2xl tracking-[0.5em] mb-4 animate-fade-up opacity-0"
+          className="font-display text-black-500 font-semibold text-xl tracking-[0.5em] mb-4 animate-fade-up opacity-0"
           style={{ animationDelay: "100ms", animationFillMode: "forwards" }}
         >
           Centennial Football
