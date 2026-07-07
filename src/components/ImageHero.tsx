@@ -24,7 +24,7 @@ export default function HeroImage() {
           className="font-display text-black-500 font-semibold text-2xl tracking-[0.5em] mb-4 animate-fade-up opacity-0"
           style={{ animationDelay: "100ms", animationFillMode: "forwards" }}
         >
-          Centennial Knights Football
+          Centennial Football
         </p>
         <h2
           className="font-display text-black-500 text-[clamp(5rem,18vw,14rem)] leading-none tracking-wider animate-fade-up opacity-0"
