@@ -88,8 +88,12 @@ function GameRow({ game }: { game: JrkGame }) {
         >
           {game.time}
         </span>
-        <span className={`text-sm tracking-wider text-center ${textColor}`}>
-          {game.result || "—"}
+        <span
+          className={`text-sm tracking-wider text-center ${
+            isBye ? "invisible" : textColor
+          }`}
+        >
+          {game.result}
         </span>
       </div>
     </div>
