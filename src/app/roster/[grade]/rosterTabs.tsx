@@ -1,23 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useRouter } from "next/navigation";
 import PlayerCard from "@/components/JrkPlayerCard";
 import CoachCard from "@/components/CoachCard";
 import type { Coach } from "@/types";
 import type { JrkPlayer } from "@/types";
+
+const VALID_GRADES = ["6th", "7th", "8th"] as const;
+type Grade = (typeof VALID_GRADES)[number];
 
 export default function RosterTabs({
   coaches,
   roster6,
   roster7,
   roster8,
+  activeGrade,
 }: {
   coaches: Record<string, string>[];
   roster6: Record<string, string>[];
   roster7: Record<string, string>[];
   roster8: Record<string, string>[];
+  activeGrade: "6th" | "7th" | "8th";
 }) {
-  const [activeGrade, setActiveGrade] = useState("6th");
+  const router = useRouter();
 
   const sixthCoaches = coaches.filter((c) => c.grade === "6th");
   const seventhCoaches = coaches.filter((c) => c.grade === "7th");
@@ -72,7 +77,9 @@ export default function RosterTabs({
           {grades.map((grade) => (
             <button
               key={grade.id}
-              onClick={() => setActiveGrade(grade.id)}
+              onClick={() =>
+                router.push(`/roster/${grade.id}`, { scroll: false })
+              }
               className={`flex items-center gap-2 font-display tracking-widest uppercase text-sm px-6 py-3 rounded-t-xl transition-all duration-200 -mb-px ${
                 activeGrade === grade.id
                   ? "bg-royal-600 text-white border-black-500"
