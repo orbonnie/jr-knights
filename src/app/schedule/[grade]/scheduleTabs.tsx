@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRouter } from "next/navigation";
 import type { JrkGame } from "@/types";
 import CalendarLinks from "@/components/links/CalendarLinks";
 
@@ -105,13 +105,15 @@ export default function JrkScheduleClient({
   schedule7,
   schedule8,
   calendars,
+  activeGrade,
 }: {
   schedule6: Record<string, string>[];
   schedule7: Record<string, string>[];
   schedule8: Record<string, string>[];
   calendars: Record<string, string>[];
+  activeGrade: "6th" | "7th" | "8th";
 }) {
-  const [activeGrade, setActiveGrade] = useState("6th");
+  const router = useRouter();
 
   const sixthGames = schedule6;
   const seventhGames = schedule7;
@@ -155,7 +157,9 @@ export default function JrkScheduleClient({
           {grades.map((grade) => (
             <button
               key={grade.id}
-              onClick={() => setActiveGrade(grade.id)}
+              onClick={() =>
+                router.push(`/schedule/${grade.id}`, { scroll: false })
+              }
               className={`font-display tracking-widest uppercase text-sm px-6 py-3 rounded-t-xl transition-all duration-200 -mb-px ${
                 activeGrade === grade.id
                   ? "bg-royal-600 text-white border-black-50"
