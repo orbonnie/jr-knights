@@ -23,7 +23,7 @@ const registerLinks = [
     newTab: false,
   },
   {
-    label: "Team Registration Links",
+    label: "JRK Registration Links",
     href: "info/#top-cta",
     newTab: false,
   },
@@ -232,7 +232,7 @@ export default function Navbar() {
               </svg>
             </button>
             {registerOpen && (
-              <div className="absolute right-0 top-full mt-2 w-48 bg-white shadow-xl flex flex-col z-100 rounded-md overflow-hidden">
+              <div className="absolute right-0 top-full mt-2 w-56 bg-white shadow-xl flex flex-col z-100 rounded-md overflow-hidden">
                 {registerLinks.map((link) => {
                   if ("children" in link) {
                     return (
