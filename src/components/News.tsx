@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { NewsStory } from "@/types";
+import { isInternalLink } from "@/lib/links";
 
 export default function News({
   news,
@@ -153,7 +154,7 @@ export default function News({
               <Link
                 key={`${item.title}-${i}`}
                 href={item.href}
-                target={item.href === "#" ? "" : "_blank"}
+                target={isInternalLink(item.href) ? undefined : "_blank"}
                 className="min-w-full w-full flex-shrink-0"
               >
                 {/* IMAGE */}
