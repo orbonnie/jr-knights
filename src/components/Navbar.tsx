@@ -23,9 +23,28 @@ const registerLinks = [
     newTab: false,
   },
   {
-    label: "Registration Links",
+    label: "Team Registration Links",
     href: "info/#top-cta",
     newTab: false,
+  },
+  {
+    label: "GMSAA Registration",
+    href: "#",
+    newTab: false,
+    children: [
+      { label: "Register", href: "https://shorturl.at/Om0Cg", newTab: true },
+      {
+        label: "Concussion Waiver",
+        href: "/documents/GMSAAConcussion.pdf",
+        newTab: true,
+      },
+
+      {
+        label: "General Waiver",
+        href: "/documents/GMSAAWaiver.pdf",
+        newTab: true,
+      },
+    ],
   },
   {
     label: "Physical Form",
@@ -39,6 +58,8 @@ export default function Navbar() {
   const [registerOpen, setRegisterOpen] = useState(false);
   const [sponsorsOpen, setSponsorsOpen] = useState(false);
   const [jrkOpen, setJrkOpen] = useState(false);
+  const [gmsaaOpen, setGmsaaOpen] = useState(false); // desktop submenu
+  const [gmsaaOpenMobile, setGmsaaOpenMobile] = useState(false); // mobile submenu
 
   const sponsorsRef = useRef<HTMLDivElement>(null);
   const registerRef = useRef<HTMLDivElement>(null);
@@ -58,6 +79,7 @@ export default function Navbar() {
 
         if (registerRef.current && !registerRef.current.contains(target)) {
           setRegisterOpen(false);
+          setGmsaaOpen(false);
         }
 
         if (jrkRef.current && !jrkRef.current.contains(target)) {
@@ -75,6 +97,8 @@ export default function Navbar() {
         setSponsorsOpen(false);
         setRegisterOpen(false);
         setJrkOpen(false);
+        setGmsaaOpen(false);
+        setGmsaaOpenMobile(false);
       }
     };
 
@@ -85,6 +109,8 @@ export default function Navbar() {
         setSponsorsOpen(false);
         setRegisterOpen(false);
         setJrkOpen(false);
+        setGmsaaOpen(false);
+        setGmsaaOpenMobile(false);
       }
     };
 
@@ -206,19 +232,77 @@ export default function Navbar() {
               </svg>
             </button>
             {registerOpen && (
-              <div className="absolute right-0 top-full mt-2 w-48 bg-white shadow-xl flex flex-col z-100 rounded-md">
-                {registerLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target={link.newTab ? "_blank" : undefined}
-                    rel={link.newTab ? "noopener noreferrer" : undefined}
-                    onClick={() => setRegisterOpen(false)}
-                    className="bg-white text-royal-600 text-xs font-bold tracking-widest uppercase px-5 py-4 rounded-md hover:bg-silver-400/80 transition-colors border-b border-black-500/10 last:border-0"
-                  >
-                    {link.label}
-                  </a>
-                ))}
+              <div className="absolute right-0 top-full mt-2 w-48 bg-white shadow-xl flex flex-col z-100 rounded-md overflow-hidden">
+                {registerLinks.map((link) => {
+                  if ("children" in link) {
+                    return (
+                      <div
+                        key={link.label}
+                        className="border-b border-black-500/10 last:border-0"
+                      >
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setGmsaaOpen(!gmsaaOpen);
+                          }}
+                          className="w-full flex items-center justify-between gap-2 bg-white text-royal-600 text-xs font-bold tracking-widest uppercase px-5 py-4 hover:bg-silver-400/80 transition-colors"
+                        >
+                          <span className="flex-1 text-left">{link.label}</span>
+                          <svg
+                            className={`w-3 h-3 transition-transform flex-shrink-0 ${
+                              gmsaaOpen ? "rotate-180" : ""
+                            }`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2.5}
+                              d="M19 9l-7 7-7-7"
+                            />
+                          </svg>
+                        </button>
+                        {gmsaaOpen && (
+                          <div className="flex flex-col bg-silver-400/20">
+                            {link.children!.map((child) => (
+                              <a
+                                key={child.href}
+                                href={child.href}
+                                target={child.newTab ? "_blank" : undefined}
+                                rel={
+                                  child.newTab
+                                    ? "noopener noreferrer"
+                                    : undefined
+                                }
+                                onClick={() => {
+                                  setRegisterOpen(false);
+                                  setGmsaaOpen(false);
+                                }}
+                                className="text-royal-600/90 text-xs font-semibold tracking-wider uppercase px-7 py-3 hover:bg-silver-400/80 transition-colors border-b border-black-500/5 last:border-0"
+                              >
+                                {child.label}
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  }
+                  return (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target={link.newTab ? "_blank" : undefined}
+                      rel={link.newTab ? "noopener noreferrer" : undefined}
+                      onClick={() => setRegisterOpen(false)}
+                      className="bg-white text-royal-600 text-xs font-bold tracking-widest uppercase px-5 py-4 rounded-md hover:bg-silver-400/80 transition-colors border-b border-black-500/10 last:border-0"
+                    >
+                      {link.label}
+                    </a>
+                  );
+                })}
               </div>
             )}
           </div>
@@ -301,21 +385,74 @@ export default function Navbar() {
 
             {registerOpen && (
               <div className="ml-4 flex flex-col gap-3">
-                {registerLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target={link.newTab ? "_blank" : undefined}
-                    rel={link.newTab ? "noopener noreferrer" : undefined}
-                    onClick={() => {
-                      setOpen(false);
-                      setRegisterOpen(false);
-                    }}
-                    className="text-white/70 text-lg tracking-wider hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                ))}
+                {registerLinks.map((link) => {
+                  if ("children" in link) {
+                    return (
+                      <div key={link.label} className="flex flex-col gap-3">
+                        <button
+                          onClick={() => setGmsaaOpenMobile(!gmsaaOpenMobile)}
+                          className="text-white/70 text-lg tracking-wider hover:text-white transition-colors flex items-center gap-2"
+                        >
+                          {link.label}
+                          <svg
+                            className={`w-3 h-3 transition-transform ${
+                              gmsaaOpenMobile ? "rotate-180" : ""
+                            }`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2.5}
+                              d="M19 9l-7 7-7-7"
+                            />
+                          </svg>
+                        </button>
+                        {gmsaaOpenMobile && (
+                          <div className="ml-4 flex flex-col gap-3">
+                            {link.children!.map((child) => (
+                              <a
+                                key={child.href}
+                                href={child.href}
+                                target={child.newTab ? "_blank" : undefined}
+                                rel={
+                                  child.newTab
+                                    ? "noopener noreferrer"
+                                    : undefined
+                                }
+                                onClick={() => {
+                                  setOpen(false);
+                                  setRegisterOpen(false);
+                                  setGmsaaOpenMobile(false);
+                                }}
+                                className="text-white/60 text-base tracking-wider hover:text-white transition-colors"
+                              >
+                                {child.label}
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  }
+                  return (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target={link.newTab ? "_blank" : undefined}
+                      rel={link.newTab ? "noopener noreferrer" : undefined}
+                      onClick={() => {
+                        setOpen(false);
+                        setRegisterOpen(false);
+                      }}
+                      className="text-white/70 text-lg tracking-wider hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  );
+                })}
               </div>
             )}
           </div>
