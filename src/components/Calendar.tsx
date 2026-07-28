@@ -108,6 +108,9 @@ function AgendaView({
   const month = currentDate.getMonth();
   const daysInMonth = getDaysInMonth(year, month);
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const todayRef = useRef<HTMLDivElement>(null);
+
   // Build list of days that have events, plus today
   const days = Array.from({ length: daysInMonth })
     .map((_, i) => {
@@ -118,6 +121,13 @@ function AgendaView({
       return { day, dateKey, events: eventsByDate[dateKey] || [] };
     })
     .filter((d) => d.events.length > 0 || d.dateKey === todayKey);
+
+  useEffect(() => {
+    // Only auto-scroll if today is actually in this month's list
+    if (todayRef.current && containerRef.current) {
+      todayRef.current.scrollIntoView({ block: "start" });
+    }
+  }, [year, month]);
 
   if (days.length === 0) {
     return (
@@ -130,7 +140,7 @@ function AgendaView({
   }
 
   return (
-    <div className="overflow-y-auto h-[450px] rounded-b-2xl">
+    <div ref={containerRef} className="overflow-y-auto h-[450px] rounded-b-2xl">
       {days.map(({ day, dateKey, events }) => {
         const isToday = dateKey === todayKey;
         const date = new Date(year, month, day);
@@ -138,6 +148,7 @@ function AgendaView({
         return (
           <div
             key={dateKey}
+            ref={isToday ? todayRef : undefined}
             className="flex border-b border-gray-400/50 last:border-0"
           >
             {/* Date column */}
@@ -512,7 +523,7 @@ export default function Calendar({
               <p className="text-gray-400 text-sm">{error}</p>
             </div>
           ) : view === "month" ? (
-            <div className="grid grid-cols-7 auto-rows-[4rem] sm:auto-rows-[5rem] bg-white">
+            <div className="grid grid-cols-7 auto-rows-[4rem] sm:auto-rows-[7rem] bg-white">
               {Array.from({ length: firstDay }).map((_, i) => (
                 <div
                   key={`empty-${i}`}
@@ -549,7 +560,7 @@ export default function Calendar({
                     </div>
 
                     <div className="overflow-y-auto flex-1 p-1.5 pt-1 space-y-0.5">
-                      {dayEvents.slice(0, 2).map((event) => (
+                      {dayEvents.slice(0, 3).map((event) => (
                         <div
                           key={event.id}
                           className="text-[7px] sm:text-xs text-white px-0.5 sm:px-1 py-px sm:py-0.5 rounded truncate"
@@ -558,9 +569,9 @@ export default function Calendar({
                           {event.summary}
                         </div>
                       ))}
-                      {dayEvents.length > 2 && (
+                      {dayEvents.length > 3 && (
                         <div className="text-[7px] sm:text-xs text-gray-700 font-bold">
-                          +{dayEvents.length - 2} more
+                          +{dayEvents.length - 3} more
                         </div>
                       )}
                     </div>
