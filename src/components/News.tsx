@@ -104,11 +104,11 @@ export default function News({
         {/* HEADER */}
         <div className="text-center mb-4">
           <p className="font-display text-royal-600 text-xl tracking-[0.4em] mb-2">
-            STAY
+            LATEST
           </p>
 
           <h2 className="font-display text-black-500 text-6xl tracking-widest">
-            INFORMED
+            NEWS
           </h2>
         </div>
 

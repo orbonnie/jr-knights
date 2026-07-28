@@ -125,7 +125,7 @@ function AgendaView({
   useEffect(() => {
     // Only auto-scroll if today is actually in this month's list
     if (todayRef.current && containerRef.current) {
-      todayRef.current.scrollIntoView({ block: "start" });
+      containerRef.current.scrollTop = todayRef.current.offsetTop;
     }
   }, [year, month]);
 
