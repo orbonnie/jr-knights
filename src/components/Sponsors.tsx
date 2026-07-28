@@ -25,18 +25,20 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
       rel="noopener noreferrer"
       onMouseEnter={hover.onMouseEnter}
       onMouseLeave={hover.onMouseLeave}
-      className={`relative flex items-center justify-center overflow-hidden aspect-[3/2] rounded-md transition-colors ${
+      className={`relative flex items-center justify-center overflow-hidden aspect-[3/2] border-x border-royal-600 rounded-md transition-colors ${
         hover.hovered ? "bg-black-500" : "bg-royal-600"
       }`}
     >
       {sponsor.logo ? (
-        <Image
-          src={cloudinaryUrl(sponsor.logo)}
-          alt={sponsor.name}
-          fill
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          className="object-contain opacity-90 h-3/4"
-        />
+        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-3/4 flex items-center justify-center px-4">
+          <Image
+            src={cloudinaryUrl(sponsor.logo)}
+            alt={sponsor.name}
+            fill
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            className="object-cover h-full w-full"
+          />
+        </div>
       ) : (
         <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-3/4 bg-white flex items-center justify-center px-4">
           <span

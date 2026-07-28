@@ -523,7 +523,7 @@ export default function Calendar({
               <p className="text-gray-400 text-sm">{error}</p>
             </div>
           ) : view === "month" ? (
-            <div className="grid grid-cols-7 auto-rows-[4rem] sm:auto-rows-[7rem] bg-white">
+            <div className="grid grid-cols-7 auto-rows-[5rem] sm:auto-rows-[7rem] bg-white">
               {Array.from({ length: firstDay }).map((_, i) => (
                 <div
                   key={`empty-${i}`}
