@@ -5,7 +5,7 @@ import Marquee from "react-fast-marquee";
 const items = [
   "CENTENNIAL JR KNIGHTS",
   "ROSWELL GEORGIA",
-  "GMSAA CLASS 2C",
+  "GMSAA CLASS C1",
   "WE ARE #UKNIGHTED",
   "HONOR · COURAGE · COMMITMENT",
 ];
