@@ -59,7 +59,7 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
             : "opacity-0 translate-y-1"
         }`}
       >
-        <span className="bg-black-500/90 text-white text-[12px] sm:text-[20px] font-display tracking-widest uppercase px-2 py-1 rounded-md shadow-md whitespace-nowrap overflow-hidden text-ellipsis max-w-full min-w-0 block">
+        <span className="bg-black-500/90 text-white text-[18px] md:text-[.9rem] lg:text-[20px] font-display tracking-widest uppercase px-2 py-1 rounded-md shadow-md whitespace-nowrap overflow-hidden text-ellipsis max-w-full min-w-0 block">
           {sponsor.name}
         </span>
       </div>
