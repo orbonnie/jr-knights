@@ -51,6 +51,18 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
           </span>
         </div>
       )}
+      {/* Hover label */}
+      <div
+        className={`absolute top-10 left-1/2 -translate-x-1/2 pointer-events-none transition-all duration-200 ${
+          hover.hovered
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-1"
+        }`}
+      >
+        <span className="bg-black-500/90 text-white text-[20px] font-display tracking-widest uppercase px-2 py-1 rounded-md shadow-md whitespace-nowrap overflow-hidden text-ellipsis max-w-full min-w-0 block">
+          {sponsor.name}
+        </span>
+      </div>
     </a>
   );
 }
