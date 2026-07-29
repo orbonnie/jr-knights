@@ -12,7 +12,7 @@ export default async function SponsorsPage() {
   const sponsors = (await getSheetData("Sponsors")) as unknown as Sponsor[];
 
   return (
-    <main className="min-h-screen bg-silver-300 pt-24">
+    <main className="min-h-screen bg-silver-300 pt-24" id="sponsors">
       <Sponsors sponsors={sponsors} />
     </main>
   );

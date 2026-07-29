@@ -47,7 +47,7 @@ export default async function JrkLandingPage() {
       {/* Hero — full screen poster */}
       <ImageHero />
       {/* News reel */}
-      <div className=" px-6">
+      <div className=" px-6" id="news">
         <div className="max-w-4xl mx-auto">
           <News
             news={jrkNews as NewsStory[]}
@@ -58,7 +58,10 @@ export default async function JrkLandingPage() {
       </div>
 
       {/* Calendar */}
-      <div className="sm:px-6 border-y bg-silver-400 border-y-silver-600/10">
+      <div
+        className="sm:px-6 border-y bg-silver-400 border-y-silver-600/10"
+        id="calendar"
+      >
         <div className="sm:max-w-4xl mx-auto">
           <Calendar
             selectedCalendars={selectedCalendars}
