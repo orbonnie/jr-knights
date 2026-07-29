@@ -2,7 +2,7 @@
 
 import { useHoverReset } from "@/hooks/useHoverReset";
 
-const MIDDLE_REGISTRATION_URL = "https://registration.teamsnap.com/form/48104";
+const MIDDLE_REGISTRATION_URL = "https://registration.teamsnap.com/form/51390";
 const ELEMENTARY_REGISTRATION_URL =
   "https://cobbfootball.leagueapps.com/clubteams/5052028-2026-centennial-youth-football";
 

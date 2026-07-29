@@ -1,10 +1,5 @@
 import Image from "next/image";
-
-const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-
-// Cloudinary helper
-const cloudinaryUrl = (path: string) =>
-  `https://res.cloudinary.com/${cloudName}/image/upload/${path}`;
+import { cloudinaryUrl } from "@/lib/cloudinary";
 
 export type Coach = {
   name: string;
@@ -58,16 +53,3 @@ export default function CoachCard({
     </div>
   );
 }
-
-// export default function CoachCard({ coach }: { coach: Coach }) {
-//   return (
-//     <div className="flex items-center gap-4 px-6 py-4 border-b border-gray-400/50 bg-royal-600/20">
-//       <span className="font-display text-black-500 text-lg tracking-wider flex-1">
-//         {coach.name.toUpperCase()}
-//       </span>
-//       <span className="text-xs tracking-widest uppercase text-white bg-royal-600 px-3 py-1 rounded-lg shrink-0">
-//         {coach.role}
-//       </span>
-//     </div>
-//   )
-// }

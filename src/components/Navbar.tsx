@@ -132,7 +132,7 @@ export default function Navbar() {
         </Link> */}
 
         {/* Mobile logo + hamburger */}
-        <div className="md:hidden flex items-center gap-3">
+        <div className="md:hidden flex items-center gap-3 w-full pr-4">
           <Link href="/">
             <img
               src="/logo.png"
@@ -162,6 +162,14 @@ export default function Navbar() {
               }`}
             />
           </button>
+
+          {/* Admin */}
+          <Link
+            href="/admin/add-news"
+            className="ml-auto text-white/30 hover:text-white/60 text-xs tracking-widest uppercase transition-colors"
+          >
+            Admin
+          </Link>
         </div>
 
         {/* Sponsors Dropdown */}
@@ -306,6 +314,13 @@ export default function Navbar() {
               </div>
             )}
           </div>
+          {/* Admin */}
+          <Link
+            href="/admin/add-news"
+            className="ml-auto text-white/70 hover:text-white/60 text-xs tracking-widest uppercase transition-colors"
+          >
+            Admin
+          </Link>
         </nav>
       </div>
 
