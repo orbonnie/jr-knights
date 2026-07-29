@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { NewsStory } from "@/types";
 import { isInternalLink } from "@/lib/links";
+import { cloudinaryUrl } from "@/lib/cloudinary";
 
 export default function News({
   news,
@@ -21,13 +22,15 @@ export default function News({
   const [paused, setPaused] = useState(false);
   const [transitionEnabled, setTransitionEnabled] = useState(true);
   const throttleRef = useRef(false);
-  const slides = [...news].filter((n) => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const [year, month, day] = n.isoDate.split("-").map(Number);
-    const eventDate = new Date(year, month - 1, day);
-    return eventDate >= today;
-  });
+  const slides = [...news]
+    .filter((n) => {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const [year, month, day] = n.isoDate.split("-").map(Number);
+      const eventDate = new Date(year, month - 1, day);
+      return eventDate >= today;
+    })
+    .sort((a, b) => (b.postedDate ?? "").localeCompare(a.postedDate ?? ""));
 
   const parseBold = (text: string) => {
     const parts = text.split(/(\*\*[^*]+\*\*)/g);
@@ -161,7 +164,7 @@ export default function News({
                 <div className="pt-8 flex justify-center">
                   <div className="relative w-3/4 aspect-[16/7] overflow-hidden rounded-2xl">
                     <Image
-                      src={item.image}
+                      src={cloudinaryUrl(item.image)}
                       alt={item.title}
                       fill
                       sizes="75vw"

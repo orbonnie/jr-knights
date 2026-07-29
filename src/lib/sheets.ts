@@ -1,12 +1,12 @@
 // lib/sheets.ts
 import { google } from "googleapis";
-import { unstable_cache } from "next/cache";
+import { unstable_cache, revalidateTag } from "next/cache";
 
 function getAuth() {
   return new google.auth.JWT({
     email: process.env.GOOGLE_CLIENT_EMAIL,
     key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
-    scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
+    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
   });
 }
 
@@ -33,4 +33,18 @@ export function getSheetData(sheetName: string, range = "A:Z") {
     revalidate: 60,
     tags: [sheetName.toLowerCase()],
   })();
+}
+
+export async function appendSheetRow(sheetName: string, values: string[]) {
+  const sheets = google.sheets({ version: "v4", auth: getAuth() });
+
+  await sheets.spreadsheets.values.append({
+    spreadsheetId: process.env.DATA_GOOGLE_SHEET_ID,
+    range: `${sheetName}!A:A`,
+    valueInputOption: "RAW",
+    insertDataOption: "INSERT_ROWS",
+    requestBody: { values: [values] },
+  });
+
+  revalidateTag(sheetName.toLowerCase(), "max");
 }
