@@ -140,7 +140,7 @@ export default async function ParentsPage() {
       />
 
       {/* Communication */}
-      <section className="bg-silver-400 py-20 px-6 mb-2">
+      <section className="bg-silver-400 py-20 px-6 mb-2" id="communication">
         <div className="max-w-4xl mx-auto">
           <p className="font-display text-royal-600 text-xl tracking-[0.4em] mb-2">
             STAY
@@ -214,7 +214,7 @@ export default async function ParentsPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-white py-20 px-6 mb-2">
+      <section className="bg-white py-20 px-6 mb-2" id="faq">
         <div className="max-w-4xl mx-auto">
           <p className="font-display text-royal-600 text-xl tracking-[0.4em] mb-2">
             FREQUENTLY ASKED
@@ -241,7 +241,7 @@ export default async function ParentsPage() {
       </section>
 
       {/* Contacts */}
-      <section className="bg-silver-500 py-20 px-6 mb-2">
+      <section className="bg-silver-500 py-20 px-6 mb-2" id="contacts">
         <div className="max-w-4xl mx-auto">
           <p className="font-display text-royal-600 text-xl tracking-[0.4em] mb-2">
             PROGRAM
