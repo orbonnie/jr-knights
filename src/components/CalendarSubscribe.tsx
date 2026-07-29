@@ -43,7 +43,7 @@ export default function CalendarSubscribe({
   );
 
   return (
-    <section className={`bg-${divBg} py-16 px-6`}>
+    <section className={`bg-${divBg} py-16 px-6`} id="calendar-subscribe">
       <div className="max-w-4xl mx-auto">
         <div className="mb-10">
           <p className="font-display text-royal-600 text-xl tracking-[0.4em] mb-2">
