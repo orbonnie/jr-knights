@@ -36,8 +36,8 @@ export default function JrKnightsPage() {
     <div className="min-h-screen bg-white pt-24 pb-10 px-12">
       <div className="max-w-4xl mx-auto">
         {/* Hero */}
-        <div className="mb-10">
-          <h1 className="font-display text-black-500 text-7xl tracking-widest">
+        <div className="mb-6 sm:mb-10">
+          <h1 className="font-display text-black-500 text-5xl sm:text-7xl tracking-widest">
             JR KNIGHTS
           </h1>
         </div>
