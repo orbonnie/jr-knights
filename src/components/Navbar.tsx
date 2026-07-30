@@ -23,7 +23,7 @@ const registerLinks = [
     newTab: false,
   },
   {
-    label: "JRK Registration Links",
+    label: "Knights Registration",
     href: "info/#top-cta",
     newTab: false,
   },
