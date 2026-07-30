@@ -42,7 +42,7 @@ export default function JrKnightsPage() {
           </h1>
         </div>
 
-        <div className="px-12">
+        <div className="sm:px-8">
           {/* Intro */}
           <div className="space-y-4">
             <p className="text-gray-700 leading-relaxed">
@@ -77,7 +77,7 @@ export default function JrKnightsPage() {
           </div>
 
           {/* Registration buttons */}
-          <section className="py-20" id="top-cta">
+          <section className="py-10 scroll-mt-16" id="top-cta">
             {/* <p className="text-black-500 text-md leading-relaxed mb-6 text-center">
               <span className="font-bold text-lg text-royal-600 bg-royal-600/10 p-2 rounded-xl text-center">
                 Register today
