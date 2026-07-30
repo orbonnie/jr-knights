@@ -202,7 +202,7 @@ export function AddNewsForm({ password }: { password: string }) {
 
         <div>
           <label className="block text-sm font-medium text-black-500 mb-1">
-            Date
+            Expiration Date
           </label>
           <input
             type="date"
