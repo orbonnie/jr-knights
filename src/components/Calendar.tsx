@@ -127,7 +127,7 @@ function AgendaView({
     if (todayRef.current && containerRef.current) {
       containerRef.current.scrollTop = todayRef.current.offsetTop;
     }
-  }, [year, month]);
+  }, [year, month, eventsByDate]);
 
   if (days.length === 0) {
     return (
@@ -140,7 +140,10 @@ function AgendaView({
   }
 
   return (
-    <div ref={containerRef} className="overflow-y-auto h-[450px] rounded-b-2xl">
+    <div
+      ref={containerRef}
+      className="relative overflow-y-auto h-[450px] rounded-b-2xl"
+    >
       {days.map(({ day, dateKey, events }) => {
         const isToday = dateKey === todayKey;
         const date = new Date(year, month, day);
