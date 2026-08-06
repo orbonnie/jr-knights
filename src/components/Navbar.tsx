@@ -12,7 +12,13 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "Schedule", href: "/schedule" },
   { label: "Roster", href: "/roster" },
-  { label: "Fundraising", href: "/banners" },
+  {
+    label: "Sponsors",
+    children: [
+      { label: "Our Sponsors", href: "/sponsors" },
+      { label: "Banner Fundraising", href: "/banners" },
+    ],
+  },
   { label: "Parents", href: "/parents" },
 ];
 
@@ -166,7 +172,7 @@ export default function Navbar() {
           {/* Admin */}
           <Link
             href="/admin/add-news"
-            className="ml-auto text-white/30 hover:text-white/60 text-xs tracking-widest uppercase transition-colors"
+            className="ml-auto text-white/70 hover:text-white/60 text-xs tracking-widest uppercase transition-colors"
           >
             Admin
           </Link>
@@ -199,6 +205,20 @@ export default function Navbar() {
                       />
                     </svg>
                   </button>
+                  {sponsorsOpen && (
+                    <div className="absolute top-full right-0 mt-2 w-48 bg-white shadow-xl flex flex-col z-[100] rounded-md overflow-hidden">
+                      {link.children?.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          onClick={() => setSponsorsOpen(false)}
+                          className="bg-white text-black-500 tracking-widest text-xs font-bold uppercase px-5 py-4 hover:bg-silver-400/80 transition-colors border-b border-black-500/10 last:border-0"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
               );
             }
@@ -356,6 +376,23 @@ export default function Navbar() {
                       />
                     </svg>
                   </button>
+                  {sponsorsOpen && (
+                    <div className="ml-4 flex flex-col gap-3">
+                      {link.children?.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          onClick={() => {
+                            setOpen(false);
+                            setSponsorsOpen(false);
+                          }}
+                          className="text-white/70 text-lg tracking-wider hover:text-white transition-colors"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
               );
             }
