@@ -125,7 +125,7 @@ export default async function ParentsPage() {
               they bring to the field. Academic success is a foundational part
               of who we are.
             </p>
-            <p className="text-white/90 leading-relaxed">
+            <p className="text-white/90 leading-relaxed text-lg">
               We expect every player to prioritize the "student" role by
               managing time wisely, completing assignments, and communicating
               with teachers.
