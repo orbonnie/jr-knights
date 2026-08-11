@@ -31,9 +31,8 @@ const quickLinks = [
 ];
 
 export default async function JrkLandingPage() {
-  const [jrkNews, news, allCalendars, sponsors] = await Promise.all([
-    getSheetData("JRK-News"),
-    getSheetData("HS-News"),
+  const [jrkNews, allCalendars, sponsors] = await Promise.all([
+    getSheetData("News"),
     getSheetData("Calendars") as unknown as CalendarConfig[],
     getSheetData("Sponsors") as unknown as Sponsor[],
   ]);
