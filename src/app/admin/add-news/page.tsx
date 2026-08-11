@@ -98,6 +98,7 @@ export function AddNewsForm({ password }: { password: string }) {
   const [href, setHref] = useState("#");
   const [isoDate, setIsoDate] = useState("");
   const [file, setFile] = useState<File | null>(null);
+  const [team, setTeam] = useState("jrk");
   const [status, setStatus] = useState<"idle" | "saving" | "done" | "error">(
     "idle",
   );
@@ -129,6 +130,7 @@ export function AddNewsForm({ password }: { password: string }) {
           href: href || "/",
           date: formatDisplayDate(isoDate),
           isoDate,
+          team,
         }),
       });
 
@@ -223,6 +225,18 @@ export function AddNewsForm({ password }: { password: string }) {
             onChange={(e) => setFile(e.target.files?.[0] ?? null)}
             required
             className="text-black-500 w-full"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-black-500 mb-1">
+            Team ("jrk", "chs" or "all")
+          </label>
+          <input
+            type="text"
+            value={team}
+            onChange={(e) => setTeam(e.target.value)}
+            required
+            className="text-black-500 w-full border border-gray-300 rounded-md px-3 py-2"
           />
         </div>
 
