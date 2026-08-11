@@ -8,9 +8,9 @@ export async function POST(req: NextRequest) {
   }
 
   const body = await req.json();
-  const { title, description, image, href, date, isoDate } = body;
+  const { title, description, image, href, date, isoDate, team } = body;
 
-  if (!title || !description || !image || !date || !isoDate) {
+  if (!title || !description || !image || !date || !isoDate || !team) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
   }
 
@@ -22,6 +22,7 @@ export async function POST(req: NextRequest) {
     date,
     isoDate,
     new Date().toISOString(),
+    team,
   ]);
 
   return NextResponse.json({ success: true });
