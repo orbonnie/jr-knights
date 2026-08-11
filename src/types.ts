@@ -77,6 +77,7 @@ export type NewsStory = {
   date: string;
   isoDate: string;
   postedDate: string;
+  team: string;
 };
 
 export type CalendarConfig = {

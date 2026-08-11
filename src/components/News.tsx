@@ -24,6 +24,8 @@ export default function News({
   const throttleRef = useRef(false);
   const slides = [...news]
     .filter((n) => {
+      if (n.team?.toLowerCase() === "chs") return false;
+
       const today = new Date();
       today.setHours(0, 0, 0, 0);
       const [year, month, day] = n.isoDate.split("-").map(Number);
