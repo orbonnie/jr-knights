@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
   }
 
-  await appendSheetRow("JRK-News", [
+  await appendSheetRow("News", [
     title,
     description,
     image,
