@@ -177,7 +177,7 @@ export default async function ParentsPage() {
                 title: "Website & Social",
                 description: (
                   <>
-                    JrkFootball.com is the central hub for all program
+                    JrKnightsFootball.com is the central hub for all program
                     information including schedules, registration, and
                     sponsorships. Follow us on{" "}
                     {socialLinks.map((sl) => (
