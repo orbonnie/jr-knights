@@ -1,12 +1,10 @@
 export const dynamic = "force-dynamic";
 
-import Link from "next/link";
 import Hero from "@/components/Hero";
 import ImageHero from "@/components/ImageHero";
 import News from "@/components/News";
 import Calendar from "@/components/Calendar";
 import RegisterButtons from "@/components/links/RegisterButtons";
-import MarqueeBanner from "@/components/MarqueeBanner";
 import Sponsors, { Sponsor } from "@/components/Sponsors";
 import { getSheetData } from "@/lib/sheets";
 import type { NewsStory } from "@/types";
