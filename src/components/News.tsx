@@ -51,7 +51,7 @@ export default function News({
     fn();
     setTimeout(() => {
       throttleRef.current = false;
-    }, 700); // matches transition duration
+    }, 800); // matches transition duration
   };
 
   const next = () => {
@@ -80,7 +80,7 @@ export default function News({
 
     const interval = setInterval(() => {
       next();
-    }, 8000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [paused]);
@@ -97,7 +97,7 @@ export default function News({
             setTransitionEnabled(true);
           });
         });
-      }, 700);
+      }, 800);
 
       return () => clearTimeout(timeout);
     }
@@ -148,7 +148,7 @@ export default function News({
           <div
             className={`flex w-full ${
               transitionEnabled
-                ? "transition-transform duration-700 ease-in-out"
+                ? "transition-transform duration-800 ease-in-out"
                 : ""
             }`}
             style={{
