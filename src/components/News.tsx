@@ -163,13 +163,13 @@ export default function News({
                 className="min-w-full w-full flex-shrink-0"
               >
                 {/* IMAGE */}
-                <div className="pt-8 flex justify-center">
-                  <div className="relative w-3/4 aspect-[16/7] overflow-hidden rounded-2xl">
+                <div className="pt-8 px-4 sm:px-6">
+                  <div className="relative w-full aspect-[16/9] overflow-hidden rounded-2xl">
                     <Image
                       src={cloudinaryUrl(item.image)}
                       alt={item.title}
                       fill
-                      sizes="75vw"
+                      sizes="(min-width: 768px) 768px, 100vw"
                       className="object-contain"
                       priority={i === 0}
                     />
@@ -197,7 +197,7 @@ export default function News({
           {/* LEFT BUTTON */}
           <button
             onClick={prev}
-            className="absolute left-0 sm:left-16 top-1/2 -translate-y-1/2 z-30
+            className="absolute left-0 sm:left-12 top-1/2 -translate-y-1/2 z-30
                       flex items-center justify-center
                       text-black-500/90
                       transition-all duration-200
@@ -210,7 +210,7 @@ export default function News({
           {/* RIGHT BUTTON */}
           <button
             onClick={next}
-            className="absolute right-0 sm:right-16 top-1/2 -translate-y-1/2 z-30
+            className="absolute right-0 sm:right-12 top-1/2 -translate-y-1/2 z-30
                       flex items-center justify-center
                       text-black-500/90
                       transition-all duration-200
