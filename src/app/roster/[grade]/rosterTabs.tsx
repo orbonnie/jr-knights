@@ -16,10 +16,10 @@ export default function RosterTabs({
   roster8,
   activeGrade,
 }: {
-  coaches: Record<string, string>[];
-  roster6: Record<string, string>[];
-  roster7: Record<string, string>[];
-  roster8: Record<string, string>[];
+  coaches: Coach[];
+  roster6: JrkPlayer[];
+  roster7: JrkPlayer[];
+  roster8: JrkPlayer[];
   activeGrade: "6th" | "7th" | "8th";
 }) {
   const router = useRouter();
@@ -32,25 +32,15 @@ export default function RosterTabs({
   const seventhRoster = roster7;
   const eighthRoster = roster8;
 
-  const grades = [
-    {
-      id: "6th",
-      label: "6th Grade",
-      roster: sixthRoster,
-      coaches: sixthCoaches,
-    },
-    {
-      id: "7th",
-      label: "7th Grade",
-      roster: seventhRoster,
-      coaches: seventhCoaches,
-    },
-    {
-      id: "8th",
-      label: "8th Grade",
-      roster: eighthRoster,
-      coaches: eighthCoaches,
-    },
+  const grades: {
+    id: "6th" | "7th" | "8th";
+    label: string;
+    roster: JrkPlayer[];
+    coaches: Coach[]; // 👈 Changed from Record<string, string>[]
+  }[] = [
+    { id: "6th", label: "6th Grade", roster: roster6, coaches: sixthCoaches },
+    { id: "7th", label: "7th Grade", roster: roster7, coaches: seventhCoaches },
+    { id: "8th", label: "8th Grade", roster: roster8, coaches: eighthCoaches },
   ];
 
   const active = grades.find((g) => g.id === activeGrade)!;
@@ -113,7 +103,7 @@ export default function RosterTabs({
               </p>
               <div className="flex overflow-x-auto gap-2 sm:gap-4 px-3 sm:px-6 py-5">
                 {active.coaches.map((coach, i) => (
-                  <CoachCard key={i} coach={coach as Coach} aspect={aspect} />
+                  <CoachCard key={i} coach={coach} aspect={aspect} />
                 ))}
               </div>
             </div>
@@ -132,9 +122,9 @@ export default function RosterTabs({
           </div>
 
           {active.roster?.length > 0 ? (
-            [...active.roster].map((player, i) => (
-              <PlayerCard key={i} player={player as unknown as JrkPlayer} />
-            ))
+            [...active.roster]
+              .sort((a, b) => a.number - b.number)
+              .map((player, i) => <PlayerCard key={i} player={player} />)
           ) : (
             <div className="px-6 py-12 text-center">
               <p className="font-display text-silver-500 text-xl tracking-widest">
