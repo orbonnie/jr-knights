@@ -7,7 +7,7 @@ import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { NewsStory } from "@/types";
 import { isInternalLink } from "@/lib/links";
-import { cloudinaryUrl } from "@/lib/cloudinary";
+import { cloudinaryLoader } from "@/lib/cloudinary";
 
 export default function News({
   news,
@@ -166,7 +166,8 @@ export default function News({
                 <div className="pt-8 px-4 sm:px-6">
                   <div className="relative w-full aspect-[16/9] overflow-hidden rounded-2xl">
                     <Image
-                      src={cloudinaryUrl(item.image)}
+                      src={item.image}
+                      loader={cloudinaryLoader}
                       alt={item.title}
                       fill
                       sizes="(min-width: 768px) 768px, 100vw"
