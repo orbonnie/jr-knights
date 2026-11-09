@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { cloudinaryUrl } from "@/lib/cloudinary";
+import { cloudinaryLoader } from "@/lib/cloudinary";
 import { useHoverReset } from "@/hooks/useHoverReset";
 
 export type Sponsor = {
@@ -27,7 +27,8 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
       {sponsor.logo ? (
         <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-3/4 flex items-center justify-center px-4">
           <Image
-            src={cloudinaryUrl(sponsor.logo)}
+            src={sponsor.logo}
+            loader={cloudinaryLoader}
             alt={sponsor.name}
             fill
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
@@ -40,7 +41,7 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
             className={`font-display font-black tracking-widest text-center uppercase leading-none w-full transition-colors ${
               hover.hovered ? "text-royal-600" : "text-black-500"
             }`}
-            style={{ fontSize: "clamp(0.75rem, 4vw, 1.5rem" }}
+            style={{ fontSize: "clamp(0.75rem, 4vw, 1.5rem)" }}
           >
             {sponsor.name}
           </span>

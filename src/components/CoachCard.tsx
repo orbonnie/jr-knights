@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { cloudinaryUrl } from "@/lib/cloudinary";
+import { cloudinaryLoader } from "@/lib/cloudinary";
 
 export type Coach = {
   name: string;
@@ -23,8 +23,10 @@ export default function CoachCard({
     >
       {coach.photo && (
         <Image
-          src={cloudinaryUrl(coach.photo)}
+          src={coach.photo}
+          loader={cloudinaryLoader}
           alt={coach.name}
+          sizes="160px"
           fill
           className="object-cover object-top"
         />
